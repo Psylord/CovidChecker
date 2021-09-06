@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Covid API"
+  termsOfService: "http://swagger.io/terms/"
+host: "localhost:8000"
+basePath: "/"
+tags:
+- name: "Covid Data"
+schemes:
+- "https"
+- "http"
+paths:
+  /init:
+    get:
+      tags:
+      - "Initialize"
+      summary: "Initialize and persist the data"
+      responses:
+        "200":
+          description: "Status OK"
+
+
+  /data/{Lat}{Long}:
+    get:
+      tags:
+      - "GetData"
+      summary: "Find No of cases by gps co-ordinates"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "Lat"
+        in: "path"
+        description: "Lattitude of location"
+        required: true
+        type: "string"
+      - name: "Long"
+        in: "path"
+        description: "Longitude of location"
+        required: true
+        type: "string"
+      
+      responses:
+        "200":
+          description: "Status OK"
+
+
